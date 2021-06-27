@@ -18,7 +18,6 @@
       <button @click="Oclick(num)">go</button>
     </div>
     <span class="all-pages">共{{ total }}页</span>
-    <span>合计 {{ total }} 条数据</span>
   </div>
 </template> 
 <script>
@@ -38,42 +37,52 @@ export default {
     },
   },
   data() {
-      return {
-          num:1
-      }
+    return {
+      num: 1,
+    };
   },
   computed: {
-    allTotal() { 
-      return Math.ceil(this.total / this.viewNum);
+    arrNum() {
+      let arr = [];
+      let i = this.current - Math.floor(this.viewNum / 2);
+      let len = Math.floor(this.viewNum / 2) + this.current;
+      if (i <= 1) {
+        i = 1;
+        len = this.viewNum;
+      }
+      if (len >= this.total) {
+        i = this.total - this.viewNum;
+        len = this.total;
+      }
+      for (; i <= len; i++) {
+        arr.push(i);
+      }
+      return arr;
     },
-    arrNum () {
-        let arr = [];  
-        let i = this.current - Math.ceil(this.viewNum/2);
-        let len = Math.ceil(this.viewNum/2)+this.current;
-        if(i <= 1){
-            i = 1;
-            len = this.viewNum;
-        }
-        if(len >= this.total){
-            i = this.total-this.viewNum;
-            len = this.total;
-        }
-        for(;i <= len;i++){
-            arr.push(i)
-        } 
-        return arr;
-    }
   },
   methods: {
     toLast(target) {
-      this.$emit("pageChange", target);
+      if (target === "one") {
+        this.$emit("pageChange", 1);
+      } else if (target === "lastPage") {
+        if (this.current != 1) {
+          this.$emit("pageChange", this.current - 1);
+        }
+      }
     },
     toNext(target) {
-      this.$emit("pageChange", target);
+      if (target === "end") {
+        this.$emit("pageChange", this.total);
+      } else if (target === "nextPage") {
+        if (this.current < this.total) {
+          this.$emit("pageChange", this.current + 1);
+        }
+      }
     },
-    Oclick(n){
-        this.$emit('pageChange',n)
-    }
+    Oclick(n) {
+      if (n >= this.total || n < 1) return;
+      this.$emit("pageChange", n);
+    },
   },
 };
 </script>

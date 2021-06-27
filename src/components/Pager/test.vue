@@ -1,19 +1,12 @@
 <template>
   <div>
-    <h1>App组件</h1>
-    <Avatar
-      url="http://mdrs.yuanjin.tech/FgMwAPYq17So9nwVH44ltDHo7u3c"
-      :size="100"
-    />
-    <Icon type="home"/>
+    <h1>Pager组件</h1> 
     <Pager @pageChange="jumpPage" :total="total" :current="current" :viewNum="viewNum" />
   </div>
 </template>
 
-<script> 
-import Avatar from "./components/Avatar";
-import Icon from "./components/Icon";
-import Pager from "./components/Pager";
+<script>  
+import Pager from "./";
 export default {
   name: 'App',
   data () {
@@ -23,9 +16,7 @@ export default {
       viewNum:7
     }
   },
-  components: { 
-    Avatar,
-    Icon,
+  components: {  
     Pager,
   },
   methods:{
