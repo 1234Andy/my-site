@@ -51,7 +51,7 @@ export default {
 <style lang="less" scoped>
 @import "~@/styles/var.less";
 .Menu-waper {
-  width: 100%;
+  width: 100%; 
   color: @lightWords + 30%;
   .menu-main {
     width: 100%;
