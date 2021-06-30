@@ -83,54 +83,6 @@
 
 
 
-## Contact
-
-<img src="http://mdrs.yuanjin.tech/img/20201130165641.gif" alt="iShot2020-11-30下午04.55.47" style="zoom:40%;" />
-
-该组件需要横向撑满容器
-
-
-
-## Menu
-
-<img src="http://mdrs.yuanjin.tech/img/20201130195147.png" alt="image-20201130195147086" style="zoom:33%;" />
-
-该组件需要横向撑满容器，背景色透明
-
-每个菜单的信息如下：
-
-> **首页**
->
-> 链接地址：/
->
-> 选中条件：路径等于 /
->
-> **文章**
->
-> 链接地址：/blog
->
-> 选中条件：路径以`/blog`开头
->
-> **关于我**
->
-> 链接地址：/about
->
-> 选中条件：路径等于`/about`
->
-> **项目&效果**
->
-> 链接地址：/project
->
-> 选中条件：路径等于`/project`
->
-> **留言板**
->
-> 链接地址：/message
->
-> 选中条件：路径等于`/message`
-
-
-
 ## SiteAside
 
 <img src="http://mdrs.yuanjin.tech/img/20201130200148.png" alt="image-20201130200148681" style="zoom:33%;" />

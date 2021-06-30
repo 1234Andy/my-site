@@ -1,37 +1,48 @@
 <template>
-  <div>
-    <h1>App组件</h1>
-    <Avatar
-      url="http://mdrs.yuanjin.tech/FgMwAPYq17So9nwVH44ltDHo7u3c"
-      :size="100"
-    />
-    <Icon type="home"/>
-    <Pager @pageChange="jumpPage" :total="total" :current="current" :viewNum="viewNum" />
+  <div class="app-conteiner">
+    <Layout>
+      <template #left>
+        <div class="aside">
+          <SiteAside />
+        </div>
+      </template>
+      <template></template> 
+      <template #right >
+          <div class="right"></div>
+      </template> 
+    </Layout>
   </div>
 </template>
 
-<script> 
-import Avatar from "./components/Avatar";
-import Icon from "./components/Icon";
-import Pager from "./components/Pager";
+<script>
+import Layout from "@/components/Layout";
+import SiteAside from "@/components/SiteAside";
 export default {
-  name: 'App',
-  data () {
-    return {
-      total:212,
-      current:1,
-      viewNum:7
-    }
+  data() {
+    return {};
   },
-  components: { 
-    Avatar,
-    Icon,
-    Pager,
+  components: {
+    Layout,
+    SiteAside,
   },
-  methods:{
-    jumpPage (target){ 
-      this.current = target;
-    }
+  methods: {},
+};
+</script> 
+
+<style scoped lang="less">
+.app-conteiner {
+  width: 100%;
+  height: 100%;
+  .aside {
+    width: 300px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #202020;
+  }
+  .right{
+    width: 300px;
+    height: 100%;
   }
 }
-</script> 
+</style>

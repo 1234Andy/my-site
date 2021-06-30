@@ -3,7 +3,7 @@
       <div class="avatar-box">
           <Avatar url="https://qiheizhiya.oss-cn-shenzhen.aliyuncs.com/image/avatar8.jpg" :size="160" />
       </div>
-      <h2 class="title-text">我的博客</h2 >
+      <h2 class="title-text">罗冠景的博客</h2 >
       <Menu />
       <div class="contact-box">
           <Contact />
@@ -40,6 +40,7 @@ export default {
     .title-text{
         text-align: center;
         margin-bottom: 50px;
+        color: #fff;
     }
     .contact-box{
         padding-top: 40px;

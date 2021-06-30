@@ -9,9 +9,7 @@
     "serve:Avatar": "vue serve ./src/components/Avatar/test.vue",
     "serve:Icon": "vue serve ./src/components/Icon/test.vue",
     "serve:Empty": "vue serve ./src/components/Empty/test.vue",
-    "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
-    "serve:Contact": "vue serve ./src/components/SiteAside/Contact/test.vue",
-    "serve:Menu": "vue serve ./src/components/SiteAside/Menu/test.vue",
+    "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue", 
     "serve:SiteAside": "vue serve ./src/components/SiteAside/test.vue"
   },
   "dependencies": {
