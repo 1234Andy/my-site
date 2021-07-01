@@ -28,7 +28,7 @@ export default {
       }
       .main{
           flex: 1 1 auto;
-          background-color: blue;
+        //   background-color: blue;
       }
       .right{
           flex: 0 0 auto;

@@ -85,20 +85,31 @@ export default {
           width: 150px;
           height: 150px;
           left: 0;
-          bottom: 35px;
+          bottom: 20px;
           border-radius: 8px;
-          transform: scaleY(0);
+          transform: scaleY(0) ;
           transform-origin: center bottom;
           transition: 0.3s;
-          overflow: hidden;
+          &::after{
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #fff;
+            transform: translateX(-50%) rotate(45deg);
+          }
           img {
             width: 100%;
             height: 100%;
+            border-radius: 8px;
           }
         }
         &:hover {
           .pop {
             transform: scaleY(1);
+            bottom: 35px;
           }
         }
       }

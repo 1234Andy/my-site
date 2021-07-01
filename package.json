@@ -9,12 +9,13 @@
     "serve:Avatar": "vue serve ./src/components/Avatar/test.vue",
     "serve:Icon": "vue serve ./src/components/Icon/test.vue",
     "serve:Empty": "vue serve ./src/components/Empty/test.vue",
-    "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue", 
+    "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
     "serve:SiteAside": "vue serve ./src/components/SiteAside/test.vue"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-router": "^3.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

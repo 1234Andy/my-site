@@ -1,16 +1,16 @@
 <template>
   <div class="Menu-waper">
     <ul class="menu-main">
-      <li
-        v-for="item in menuList"
-        class="menu-list"
-        :class="{ current: curPage(item) }"
-        :key="item.link"
-      >
-        <a :href="item.link">
+      <li v-for="item in menuList" class="menu-list" :key="item.link">
+        <RouterLink
+          :exact="item.exact"
+          :to="{ name: item.link }"
+          active-class="selected"
+          exact-active-class=""
+        >
           <Icon :type="item.icon" />
           <span>{{ item.title }}</span>
-        </a>
+        </RouterLink>
       </li>
     </ul>
   </div>
@@ -25,25 +25,13 @@ export default {
   data() {
     return {
       menuList: [
-        { title: "首页", link: "/", icon: "home" },
-        { title: "文章", link: "/blog", icon: "blog",startWith:true },
-        { title: "关于我", link: "/about", icon: "about" },
-        { title: "项目&效果", link: "/project", icon: "code" },
-        { title: "留言板", link: "/message", icon: "chat" },
+        { title: "首页", link: "Home", icon: "home", exact: true },
+        { title: "文章", link: "Blog", icon: "blog", exact: false },
+        { title: "关于我", link: "About", icon: "about", exact: true },
+        { title: "项目&效果", link: "Project", icon: "code", exact: true },
+        { title: "留言板", link: "Message", icon: "chat", exact: true },
       ],
     };
-  },
-  methods: {
-    curPage(item) {
-        let link = item.link.toLowerCase();
-        let curPagePath = location.pathname.toLowerCase();
-      if(item.startWith){
-          return curPagePath.startsWith(link);
-      }else{
-         return item.link === curPagePath;
-      }
-      
-    },
   },
 };
 </script>
@@ -51,7 +39,7 @@ export default {
 <style lang="less" scoped>
 @import "~@/styles/var.less";
 .Menu-waper {
-  width: 100%; 
+  width: 100%;
   color: @lightWords + 30%;
   .menu-main {
     width: 100%;
@@ -60,10 +48,14 @@ export default {
       line-height: 40px;
       padding-left: 40px;
       cursor: pointer;
-      a{
-          display: block;
-          width: 100%;
-          height: 100%;
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        &.selected {
+          background-color: @gray - 80%;
+          color: @lightWords+80%;
+        }
       }
       &:hover {
         color: @lightWords+60%;
@@ -73,9 +65,6 @@ export default {
       }
       span {
         padding-left: 10px;
-      }
-      &.current {
-        background-color: @gray - 80%;
       }
     }
   }

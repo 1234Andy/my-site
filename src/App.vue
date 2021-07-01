@@ -6,10 +6,12 @@
           <SiteAside />
         </div>
       </template>
-      <template></template> 
-      <template #right >
-          <div class="right"></div>
+      <template>
+        <RouterView />
       </template> 
+      <!-- <template #right >
+          <div class="right"></div>
+      </template>  -->
     </Layout>
   </div>
 </template>
