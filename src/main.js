@@ -4,14 +4,7 @@ import App from './App.vue';
 import "./styles/global.less";
 import router from './router';
 import { showMessage } from './utils';
-Vue.prototype.$showMessage = showMessage;
-
-import "./api/banner";
-import { getBanners } from "./api/banner";
-
-getBanners().then((r) => {
-  console.log(r); 
-})
+Vue.prototype.$showMessage = showMessage; 
 
 new Vue({
   router,
