@@ -1,7 +1,7 @@
 import Icon from "@/components/Icon";
 import getComponentRootDom from "./getComponentRootDom"
 import styles from "./showMessage.module.less"
-export default function (option){
+export default function (option){ 
     const content = option.content || "",
           type = option.type || "info", 
           duration = option.duration || 2000,
