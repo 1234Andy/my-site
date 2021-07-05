@@ -1,12 +1,19 @@
 <template>
-  <div class="home-container" ref="container">
-    <ul class="container-list" :style="{ marginTop: marginTop }">
+  <div class="home-container" v-loading="isLoading" ref="container">
+    <!-- <Loading v-if="isLoading" /> -->
+    <ul
+      
+      class="container-list"
+      :style="{ marginTop: marginTop }"
+      @mousewheel="handleWheel"
+      @transitionend="handleTransitionEnd"
+    >
       <li
-        v-for="item in banners"
+        v-for="item in data"
         :key="item.id"
         :style="{ height: clientHeight + 'px' }"
       >
-        <CarouslItem :description="item.description" :bigImg="item.bigImg" />
+          <CarouslItem :carousel="item" /> 
       </li>
     </ul>
     <div class="jump-up" v-show="index !== 0" @click="switchTo(index - 1)">
@@ -14,14 +21,14 @@
     </div>
     <div
       class="jump-down"
-      v-show="index < banners.length - 1"
+      v-show="index < data.length - 1"
       @click="switchTo(index + 1)"
     >
       <Icon type="arrowDown" />
     </div>
     <ul class="indicator">
       <li
-        v-for="(item, i) in banners"
+        v-for="(item, i) in data"
         :key="item.id"
         @click="switchTo(i)"
         :class="{ activate: index === i }"
@@ -34,20 +41,21 @@
 import { getBanners } from "@/api/banner";
 import CarouslItem from "./CarouslItem";
 import Icon from "@/components/Icon";
+import fatchData from "@/mixins/fatchData.js";
+// import Loading from "@/components/Loading";
 export default {
+  // 组件混入
+  mixins:[fatchData([])],
   components: {
     CarouslItem,
     Icon,
   },
   data() {
-    return {
-      banners: [],
+    return { 
       clientHeight: 0,
       index: 0,
+      switching: false, // 是否正在切换中 
     };
-  },
-  async created() {
-    this.banners = await getBanners();
   },
   computed: {
     marginTop() {
@@ -56,11 +64,32 @@ export default {
   },
   mounted() {
     this.clientHeight = this.$refs.container.clientHeight;
+
   },
   methods: {
     switchTo(index) {
       this.index = index;
     },
+    handleWheel(e) {
+      if (
+        e.deltaY > 5 &&
+        this.switching &&
+        this.index < this.data.length - 1
+      ) {
+        this.index++;
+        this.switching = false;
+      } else if (e.deltaY < -5 && this.switching && this.index > 0) {
+        this.index--;
+        this.switching = false;
+      }
+    },
+    handleTransitionEnd() {
+      this.switching = true;
+    },
+    // 组件混入
+    async fatchData () {
+      return await getBanners();
+    }
   },
 };
 </script>
@@ -72,11 +101,13 @@ export default {
   height: 100%;
   overflow: hidden;
   position: relative;
+  
   .container-list {
     width: 100%;
     height: auto;
     transition: 800ms;
-    transition-timing-function:ease;
+    transition-timing-function: ease;
+
   }
   .jump-up,
   .jump-down {

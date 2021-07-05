@@ -32,7 +32,8 @@ export default {
       }
       .right{
           flex: 0 0 auto;
-          background-color: #888;
+          height: 100%;
+        //   background-color: #888;
       }
   }
 </style>

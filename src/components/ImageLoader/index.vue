@@ -31,7 +31,7 @@ export default {
   methods: {
     imgLoadOver() {
       this.imgBoo = true;
-      console.log("图片加载完成");
+      // console.log("图片加载完成");
       setTimeout(()=> {
         this.allOver = true;
         this.$emit("imgLoad");
@@ -46,8 +46,7 @@ export default {
 .img-box {
   position: relative;
   width: 100%;
-  height: 100%;
-  border: 1px solid blue;
+  height: 100%; 
 }
 img {
   width: 100%;

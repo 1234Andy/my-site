@@ -1,13 +1,11 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-Vue.use(VueRouter)
 import routes from "./routes"
-
+Vue.use(VueRouter)
 // 路由配置
 const router = new VueRouter({
+    routes,
     mode: "history",
-    routes
-
 })
 
-export default router; 
+export default router;
