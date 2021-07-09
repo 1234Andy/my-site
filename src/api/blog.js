@@ -24,7 +24,7 @@ export async function getBlogCategories() {
  * 文章详情
 */
 export async function getBlog(id) {
-    return await request.get(`/api/blog${id}`);
+    return await request.get(`/api/blog/${id}`);
 }
 
   /**

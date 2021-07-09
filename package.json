@@ -11,11 +11,12 @@
     "serve:Empty": "vue serve ./src/components/Empty/test.vue",
     "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
     "serve:SiteAside": "vue serve ./src/components/SiteAside/test.vue",
-    "serve:RightList":"vue serve ./src/views/Blog/components/RightList-test.vue"
+    "serve:RightList": "vue serve ./src/views/Blog/components/RightList-test.vue"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "highlight.js": "^11.0.1",
     "mockjs": "^1.1.0",
     "querystring": "^0.2.1",
     "vue": "^2.6.11",

@@ -49,6 +49,7 @@ export default {
   list-style: none;
   li{
     padding-left: 20px;
+    margin-bottom:10px;
     cursor: pointer;
   .activate {
     color: red;
