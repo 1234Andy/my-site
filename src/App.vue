@@ -6,28 +6,21 @@
           <SiteAside />
         </div>
       </template>
-      <template>
+      <template #default>
         <RouterView />
-      </template> 
-      <!-- <template #right >
-          <div class="right"></div>
-      </template>  -->
+      </template>  
     </Layout>
   </div>
 </template>
 
 <script>
-import Layout from "@/components/Layout";
-import SiteAside from "@/components/SiteAside";
-export default {
-  data() {
-    return {};
-  },
+import Layout from "./components/Layout";
+import SiteAside from "./components/SiteAside";
+export default { 
   components: {
     Layout,
     SiteAside,
-  },
-  methods: {},
+  } 
 };
 </script> 
 

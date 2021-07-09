@@ -10,7 +10,8 @@
     "serve:Icon": "vue serve ./src/components/Icon/test.vue",
     "serve:Empty": "vue serve ./src/components/Empty/test.vue",
     "serve:ImageLoader": "vue serve ./src/components/ImageLoader/test.vue",
-    "serve:SiteAside": "vue serve ./src/components/SiteAside/test.vue"
+    "serve:SiteAside": "vue serve ./src/components/SiteAside/test.vue",
+    "serve:RightList":"vue serve ./src/views/Blog/components/RightList-test.vue"
   },
   "dependencies": {
     "axios": "^0.21.1",

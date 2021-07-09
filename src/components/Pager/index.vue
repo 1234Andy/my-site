@@ -71,7 +71,11 @@ export default {
       }
     },
     toNext(target) {
-      if (target === "end") {
+      // if(this.total === this.current) { 
+      //   return
+      //   };
+      
+      if (target === "end") { 
         this.$emit("pageChange", this.total);
       } else if (target === "nextPage") {
         if (this.current < this.total) {
@@ -84,6 +88,9 @@ export default {
       this.$emit("pageChange", n);
     },
   },
+  created (){
+    console.log('我被创造了')
+  }
 };
 </script>
 

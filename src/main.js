@@ -18,7 +18,7 @@ new Vue({
 
 
 // 测试
-import * as bolgApi from "./api/blog";
+// import * as bolgApi from "./api/blog";
 
 // bolgApi.getBlogTypes().then((r) => {
 //   console.log(r)

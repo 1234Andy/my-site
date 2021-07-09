@@ -1,26 +1,27 @@
 <template>
-  <div class="blog-container"> 
+  <div class="blog-container">  
     <Layout>
-      <BlogCategory />
-      <template #right>
-          <RightList />
+      <template #default> 
+        <BlogList />
+      </template>
+      <template #right> 
+        <BlogCategory />
       </template>
     </Layout>
   </div>
 </template>
 
 <script>
-import Layout from "@/components/Layout";
-import BlogCategory from "./components/BlogCategory";
-import RightList from "./components/RightList";
-export default {
-  components:{
-    Layout,
-    BlogCategory,
-    RightList,
+  import Layout from "@/components/Layout";
+  import BlogList from "./components/BlogList";
+  import BlogCategory from "./components/BlogCategory";
+  export default {
+    components:{
+      Layout,
+      BlogList,
+      BlogCategory,
+    }
   }
-
-}
 </script>
 
 <style scoped lang="less">

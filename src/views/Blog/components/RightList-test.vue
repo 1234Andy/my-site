@@ -1,4 +1,4 @@
-<template>
+<template> 
   <RightList :list="list" @select="handleSelect" />
 </template>
 

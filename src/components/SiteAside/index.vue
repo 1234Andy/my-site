@@ -30,7 +30,7 @@ export default {
 
 <style lang="less" scoped>
 .site-aside-waper{
-    width: 100%; 
+    width: 250px; 
     height: 100%; 
     padding: 50px 0; 
     .avatar-box{
