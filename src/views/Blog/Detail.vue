@@ -2,6 +2,7 @@
   <Layout>
     <div class="blogDeatil" v-loading="isLoading">
       <BlogDetail :data="data" v-if="data" />
+      <BlogComment v-if="data"  /> 
     </div>
 
     <template #right>
@@ -18,13 +19,14 @@ import { getBlog } from "@/api/blog.js";
 import fatchData from "@/mixins/fatchData.js";
 import BlogDetail from "./components/BlogDetail";
 import BlogTOC from "./components/BlogTOC";
-
+import BlogComment from "./components/BlogComment";
 export default {
   mixins: [fatchData(null)],
   components: {
     Layout,
     BlogDetail,
     BlogTOC,
+    BlogComment,
   },
   methods: {
     async fatchData() {

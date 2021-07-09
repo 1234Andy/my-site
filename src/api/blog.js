@@ -35,8 +35,11 @@ export async function getBlog(id) {
     
 }
 
+/**
+ * 评论列表
+ */
 export async function getComments(blogid,page = 1,limit = 10) {
-    return await request.get("./api/comment",{
+    return await request.get("/api/comment",{
         params:{
             blogid,
             page,
