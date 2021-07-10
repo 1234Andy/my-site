@@ -4,6 +4,7 @@ import App from './App.vue';
 import "./styles/global.less";
 import router from './router';
 import { showMessage } from './utils';
+import "./eventBus";
 Vue.prototype.$showMessage = showMessage; 
 
 // 注册全局指令 loading指令

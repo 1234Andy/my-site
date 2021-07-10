@@ -325,12 +325,12 @@ Mock.mock(/^\/api\/blog(\?.+)?$/, "get", function(options) {
 
   Mock.mock(/^\/api\/comment\/?(\?.+)?$/, "get", function(options) {
     const query = qs.parse(options.url);
-  
+    // console.log(query.limit)
     return Mock.mock({
       code: 0,
       msg: "",
       data: {
-        "total|50-200": 0,
+        total: 80,
         [`rows|${query.limit || 10}`]: [
           {
             id: "@guid",

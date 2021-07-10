@@ -4,8 +4,18 @@
     <aside class="aside">
       <span>日期: {{ getDate(data.createDate) }}</span>
       <span>浏览: {{ data.scanNumber }}</span>
-      <a href="">评论: {{ data.commentNumber }}</a>
-      <a href="">{{ data.category.name }}</a>
+      <a href="#BlogMessage">评论: {{ data.commentNumber }}</a>
+      <RouterLink
+        :to="{
+          name: 'CategoryBlog',
+          params: {
+            categoryId: data.category.id,
+          },
+        }"
+        >
+        {{ data.category.name }}
+        </RouterLink
+      >
     </aside>
     <div v-html="data.htmlContent" class="markdown-body"></div>
   </div>
@@ -19,7 +29,7 @@ export default {
   props: {
     data: {
       type: Object,
-      required:true,
+      required: true,
     },
   },
   methods: {
@@ -29,11 +39,11 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import "~@/styles/var.less"; 
-  .aside {
-    font-size: 14px;
-    color: @lightWords;
-  } 
+@import "~@/styles/var.less";
+.aside {
+  font-size: 14px;
+  color: @lightWords;
+}
 .markdown-body {
   margin: 2em 0;
 }

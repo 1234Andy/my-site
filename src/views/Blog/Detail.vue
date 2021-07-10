@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="blogDeatil" v-loading="isLoading">
+    <div ref="Detail" class="blogDeatil" v-loading="isLoading">
       <BlogDetail :data="data" v-if="data" />
       <BlogComment v-if="data"  /> 
     </div>
@@ -27,12 +27,28 @@ export default {
     BlogDetail,
     BlogTOC,
     BlogComment,
+  }, 
+  mounted() { 
+    this.$refs.Detail.addEventListener("scroll",this.handleScroll);
+  },
+  beforeDestroy () {
+      this.$refs.Detail.removeEventListener("scroll",this.handleScroll);    
   },
   methods: {
     async fatchData() {
       return await getBlog(this.$route.params.id);
     },
+    handleScroll () {
+      this.$bus.$emit("mainScroll",this.$refs.Detail);
+    }
   },
+  updated() {
+    const hash = location.hash;
+    location.hash = "";
+    setTimeout(() =>{ 
+      location.hash = hash;
+    },0)
+  }
 };
 </script>
 

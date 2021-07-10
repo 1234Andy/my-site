@@ -1,5 +1,5 @@
 <template>
-  <div class="messageArea-container">
+  <div id="BlogMessage" class="messageArea-container">
     <DataForm v-on="$listeners" />
     <h3>
       {{ title }}
@@ -39,5 +39,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="less">
+   .loading{
+     position: relative;
+     height: 38px;  
+   }
 </style>

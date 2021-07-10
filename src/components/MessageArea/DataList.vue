@@ -1,5 +1,5 @@
 <template>
-  <div class="data-list-container"> 
+  <div class="data-list-container clearfix"> 
     <ul class="lists-box">
       <li class="list-user" v-for="item in list" :key="item.id">
         <Avatar
@@ -30,6 +30,7 @@ export default {
           type:Array,
           default: () => [],
       }, 
+
   },
   methods:{
       getDate,
@@ -47,6 +48,7 @@ export default {
 .list-user {
   display: flex;
   border-bottom: 1px solid #eaebec;
+  padding-top: 10px;
   .users {
     margin-left: 10px;
     .user-message {
