@@ -1,5 +1,5 @@
 <template>
-  <div class="blogComment-conrainer">
+  <div class="blogComment-container">
     <h1>博客评论</h1>
     <MessageArea
       title="评论列表"

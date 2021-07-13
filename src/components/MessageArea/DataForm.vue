@@ -22,7 +22,7 @@
           v-model="formData.content"
         ></textarea>
         <span class="hint">{{ formData.content.length }} /300</span>
-        <div class="errer-text"></div>
+        <div class="errer-text">{{ error.content }}</div>
       </div>
       <button :disabled="isSubmiting" class="btn">
         {{ isSubmiting ? "提交中..." : "提交" }}

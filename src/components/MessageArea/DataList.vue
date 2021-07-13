@@ -50,6 +50,7 @@ export default {
   border-bottom: 1px solid #eaebec;
   padding-top: 10px;
   .users {
+    width: 100%;
     margin-left: 10px;
     .user-message {
       line-height: 50px;

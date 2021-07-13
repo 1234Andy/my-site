@@ -11,6 +11,10 @@ Vue.prototype.$showMessage = showMessage;
 import vLoading from "./directives/loading";
 Vue.directive('loading',vLoading);
 
+// 注册全局指令 图片懒加载指令
+import vLazy from "./directives/lazy";
+Vue.directive("lazy",vLazy);
+
 new Vue({
   router,
   render: (h) => h(App),

@@ -10,7 +10,7 @@
             }
           }" 
           class="blog-browse-link">
-          <img :src="item.thumb" alt="" />
+          <img v-lazy="item.thumb" alt="" />
           <div class="blog-list-right">
             <h3 class="title">{{ item.title }}</h3>
             <p class="addition">
@@ -48,16 +48,14 @@
 <script>
 import Pager from "@/components/Pager";
 import fatchData from "@/mixins/fatchData.js";
+import mainScroll from "@/mixins/mainScroll.js";
 import { getBlogs } from "@/api/blog.js";
 import { getDate } from "@/utils";
 export default {
-  mixins: [fatchData({})],
+  mixins: [fatchData({}),mainScroll("container")],
   components: {
     Pager,
-  },
-  created() {
-    console.log(this.$route);
-  },
+  }, 
   computed: {
     list() {
       return this.data.rows;

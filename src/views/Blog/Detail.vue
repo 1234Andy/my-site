@@ -2,7 +2,7 @@
   <Layout>
     <div ref="Detail" class="blogDeatil" v-loading="isLoading">
       <BlogDetail :data="data" v-if="data" />
-      <BlogComment v-if="data"  /> 
+      <BlogComment v-if="data" />
     </div>
 
     <template #right>
@@ -17,38 +17,30 @@
 import Layout from "@/components/Layout";
 import { getBlog } from "@/api/blog.js";
 import fatchData from "@/mixins/fatchData.js";
+import mainScroll from "@/mixins/mainScroll.js";
 import BlogDetail from "./components/BlogDetail";
 import BlogTOC from "./components/BlogTOC";
 import BlogComment from "./components/BlogComment";
 export default {
-  mixins: [fatchData(null)],
+  mixins: [fatchData(null),mainScroll("Detail")],
   components: {
     Layout,
     BlogDetail,
     BlogTOC,
     BlogComment,
   }, 
-  mounted() { 
-    this.$refs.Detail.addEventListener("scroll",this.handleScroll);
-  },
-  beforeDestroy () {
-      this.$refs.Detail.removeEventListener("scroll",this.handleScroll);    
-  },
   methods: {
     async fatchData() {
       return await getBlog(this.$route.params.id);
-    },
-    handleScroll () {
-      this.$bus.$emit("mainScroll",this.$refs.Detail);
-    }
+    }, 
   },
   updated() {
     const hash = location.hash;
     location.hash = "";
-    setTimeout(() =>{ 
+    setTimeout(() => {
       location.hash = hash;
-    },0)
-  }
+    }, 0);
+  },
 };
 </script>
 
@@ -65,7 +57,7 @@ export default {
 }
 .right-container {
   width: 300px;
-  height: 100%; 
+  height: 100%;
   box-sizing: border-box;
   position: relative;
   padding: 20px;
